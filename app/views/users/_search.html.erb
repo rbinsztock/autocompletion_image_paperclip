@@ -1,0 +1,7 @@
+<div id="search">
+  <%= form_tag :controller => "users", :action => "list" do |f| %>
+    <%= text_field_tag :name, params[:name], :id => 'user_name' %>
+    <%= submit_tag "Search", :name => nil %> 
+	<%= link_to_function "Clear", "$('search_field').clear()" %>
+  <%- end %>
+</div>
