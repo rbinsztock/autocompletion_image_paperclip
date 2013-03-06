@@ -1,16 +1,6 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-
-  def search
-    @users_search = User.search(params[:name])
-
-    respond_to do |format|
-      format.html
-      format.json { render :json => @users_search }
-    end
-  end
-
   def index
     if params[:name]
       @users = User.search(params[:name])
