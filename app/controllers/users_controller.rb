@@ -2,20 +2,21 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  def list
-    list = []
-    l = params[:user][:name]
-    @users_search = User.find("name LIKE ? or first_name LIKE ? or last_name LIKE ?", l, l, l)
-    @users_search.each{|user| list << user}
+  def search
+    @users_search = User.search(params[:name])
 
     respond_to do |format|
-      format.json { render :json => list.to_json, :layout=>false }
       format.html
+      format.json { render :json => @users_search }
     end
   end
 
   def index
-    @users = User.all
+    if params[:name]
+      @users = User.search(params[:name])
+    else
+      @users = User.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

@@ -1,9 +1,5 @@
 AutocompleteImage::Application.routes.draw do
-  resources :users do
-    collection do
-      get 'list'
-    end
-  end
+  resources :users
 
   root :to => 'users#index'
   # The priority is based upon order of creation:
