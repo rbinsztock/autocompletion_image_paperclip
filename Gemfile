@@ -7,7 +7,6 @@ gem 'rails', '3.2.12'
 
 
 gem 'quiet_assets', :group => :development
-gem 'pg'
 gem "paperclip", "~> 3.0"
 gem 'thin'
 
