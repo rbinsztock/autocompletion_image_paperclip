@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
   def self.search (search_name)
   return scoped unless search_name.present?
     where(['name LIKE ? or first_name LIKE ? or last_name LIKE ?', "%#{search_name}%", "%#{search_name}%",  "%#{search_name}%"])
-  end      
+  end
+  def avatar_url
+  	self.avatar.url :thumb
+  end
 end

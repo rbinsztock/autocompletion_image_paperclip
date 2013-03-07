@@ -30,7 +30,7 @@
     .data("autocomplete")._renderItem = function(ul,item){
     return $("<li></li>")
     .data("item.autocomplete",item)
-    .append("<a>"+"<img src='" + "/assets/users/" + item.id + "/thumb/" + item.avatar_file_name  +"'>"  + item.first_name + " " + item.last_name + "<br>" + item.name  +  "</a>" )
+    .append("<a>"+"<img src='" + item.avatar_url +"'>"  + item.first_name + " " + item.last_name + "<br>" + item.name  +  "</a>" )
     .appendTo(ul);
     };
   });

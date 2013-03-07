@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json { render json: @users.as_json(only: [:first_name, :last_name, :name], methods: [:avatar_url] )}
     end
   end
 
